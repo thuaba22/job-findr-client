@@ -22,14 +22,14 @@ const Banner = () => {
       animate="visible"
       className="container mx-auto h-[600px] rounded-[80px] bg-[#f0f6fe]"
     >
-      <div className="pt-[100px] px-[125px] pb-[50px] flex items-center justify-between flex-col md:flex-row">
+      <div className="pt-[100px] px-4 md:px-[125px] pb-[50px] flex items-center justify-between flex-col md:flex-row">
         <motion.div
           variants={itemVariants}
           initial="hidden"
           animate="visible"
           className="space-y-4"
         >
-          <h2 className="text-6xl">
+          <h2 className="text-2xl md:text-6xl">
             Your <span className="text-[#1967d2] underline">Dream Job</span> in
             one place
           </h2>
@@ -59,7 +59,7 @@ const Banner = () => {
           <motion.img
             variants={imageVariants}
             whileHover="hover" // Apply hover animation
-            className="w-[64%]"
+            className="w-[32%] md:w-[64%]"
             src="https://i.postimg.cc/vHJTwdrs/r-img1.png"
             alt=""
           />
