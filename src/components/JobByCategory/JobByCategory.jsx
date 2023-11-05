@@ -33,7 +33,7 @@ const JobByCategory = () => {
         Choose Your Desired Category
       </h2>
       <hr className="border-2 border-black w-1/4 mx-auto mt-3 mb-4" />
-      <div className="flex justify-center mt-10 mb-5 gap-5">
+      <div className="flex flex-col md:flex-row justify-center mt-10 mb-5 gap-5">
         <button
           className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
             activeTab === "All Jobs" && "bg-[#111] text-white"
@@ -43,7 +43,7 @@ const JobByCategory = () => {
           All Jobs
         </button>
         <button
-          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
             activeTab === "OnSite" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("OnSite")}
@@ -59,7 +59,7 @@ const JobByCategory = () => {
           Remote
         </button>
         <button
-          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
             activeTab === "PartTime" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("PartTime")}
@@ -67,7 +67,7 @@ const JobByCategory = () => {
           PartTime
         </button>
         <button
-          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
             activeTab === "Hybrid" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("Hybrid")}
