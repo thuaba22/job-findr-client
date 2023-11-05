@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { useContext } from "react";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
   return (
     <div className="navbar max-w-6xl mx-auto bg-base-100">
       <div className="navbar-start">
@@ -33,15 +40,21 @@ const Navbar = () => {
             <li>
               <Link>All Jobs</Link>
             </li>
-            <li>
-              <Link>Applied Jobs</Link>
-            </li>
-            <li>
-              <Link>Add A Job</Link>
-            </li>
-            <li>
-              <Link>My Jobs</Link>
-            </li>
+            {user && (
+              <li>
+                <Link to="/applied-jobs">Applied Jobs</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <Link to="/my-jobs">My Jobs</Link>
+              </li>
+            )}
+            {user && (
+              <li>
+                <Link to="/add-job">Add A Job</Link>
+              </li>
+            )}
             <li>
               <Link>Blogs</Link>
             </li>
@@ -58,24 +71,57 @@ const Navbar = () => {
           <li>
             <Link>All Jobs</Link>
           </li>
-          <li>
-            <Link>Applied Jobs</Link>
-          </li>
-          <li>
-            <Link>Add A Job</Link>
-          </li>
-          <li>
-            <Link>My Jobs</Link>
-          </li>
+          {user && (
+            <li>
+              <Link to="/applied-jobs">Applied Jobs</Link>
+            </li>
+          )}
+          {user && (
+            <li>
+              <Link to="/my-jobs">My Jobs</Link>
+            </li>
+          )}
+          {user && (
+            <li>
+              <Link to="/add-job">Add A Job</Link>
+            </li>
+          )}
           <li>
             <Link>Blogs</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white">
-          Login
-        </button>
+        {user ? (
+          <div className="flex justify-center">
+            {user.photoURL ? (
+              <img
+                className="w-[50%] rounded-full"
+                src={user.photoURL}
+                title={user.displayName || "User"}
+                alt=""
+              />
+            ) : (
+              <FaUser></FaUser>
+            )}
+          </div>
+        ) : (
+          <FaUser className="text-[#1967d2]"></FaUser>
+        )}
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            className="btn capitalize bg-[#1967d2] text-white hover:bg-[#1967d2]"
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="btn capitalize ml-2 bg-[#1967d2] text-white hover:bg-[#1967d2]">
+              Login
+            </button>
+          </Link>
+        )}
         <input
           type="checkbox"
           className="toggle bg-[#1967d2] toggle-info ml-2"
