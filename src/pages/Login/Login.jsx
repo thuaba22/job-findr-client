@@ -5,8 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -26,7 +25,7 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
 
-        toast("Login successful!"); // Show a success toast message
+        toast("Login successful!");
 
         const redirectTo = location.state ? location.state.from : "/";
         setTimeout(() => {
@@ -41,7 +40,7 @@ const Login = () => {
   const handleGoogle = () => {
     googleSignIn().then((result) => {
       console.log(result.user);
-      toast("Login successful!"); // Show a success toast message
+      toast.success("Login successful!");
 
       const redirectTo = navigate(location?.state ? location.state : "/");
       setTimeout(() => {
@@ -53,7 +52,6 @@ const Login = () => {
     <div>
       <Navbar></Navbar>
       <div className="hero container w-full md:min-h-screen  bg-white">
-        <ToastContainer />
         <div className="hero-content flex">
           <div>
             <img src="https://i.postimg.cc/2yctBcKr/login.png" alt="" />

@@ -1,0 +1,95 @@
+[
+  {
+    "jobId": "01",
+    "name": "ABC Company",
+    "title": "Front-end Developer",
+    "postingDate": "2023-11-10",
+    "deadline": "2023-11-30",
+    "jobType": "Remote Jobs",
+    "salaryRange": "$50,000 - $70,000",
+    "applicants": 25
+  },
+  {
+    "jobId": "02",
+
+    "name": "XYZ Corporation",
+    "title": "Software Engineer",
+    "postingDate": "2023-11-15",
+    "deadline": "2023-12-10",
+    "jobType": "On Site Jobs",
+
+    "salaryRange": "$60,000 - $80,000",
+    "applicants": 30
+  },
+  {
+    "jobId": "03",
+
+    "name": "Tech Innovators",
+    "title": "UX Designer",
+    "postingDate": "2023-11-18",
+    "deadline": "2023-12-15",
+    "jobType": "On Site Jobs",
+
+    "salaryRange": "$45,000 - $65,000",
+    "applicants": 20
+  },
+  {
+    "jobId": "04",
+
+    "name": "Web Wizards",
+    "title": "Full-stack Developer",
+    "jobType": "Remote Jobs",
+
+    "postingDate": "2023-11-20",
+    "deadline": "2023-12-05",
+    "salaryRange": "$55,000 - $75,000",
+    "applicants": 35
+  },
+  {
+    "jobId": "05",
+
+    "name": "Tech Enterprises",
+    "title": "Data Scientist",
+    "jobType": "Hybrid Jobs",
+
+    "postingDate": "2023-11-22",
+    "deadline": "2023-12-12",
+    "salaryRange": "$70,000 - $90,000",
+    "applicants": 28
+  },
+  {
+    "jobId": "06",
+
+    "name": "Innovate IT Solutions",
+    "title": "DevOps Engineer",
+
+    "postingDate": "2023-11-25",
+    "deadline": "2023-12-20",
+    "jobType": "",
+
+    "salaryRange": "$65,000 - $85,000",
+    "applicants": 22
+  },
+  {
+    "jobId": "07",
+
+    "name": "WebTech Co.",
+    "title": "UI Designer",
+    "postingDate": "2023-11-28",
+    "deadline": "2023-12-25",
+    "salaryRange": "$50,000 - $70,000",
+    "applicants": 18
+  },
+  {
+    "jobId": "08",
+
+    "name": "DataTech Solutions",
+    "title": "Database Administrator",
+    "jobType": "Hybrid Jobs",
+
+    "postingDate": "2023-11-30",
+    "deadline": "2023-12-15",
+    "salaryRange": "$60,000 - $80,000",
+    "applicants": 26
+  }
+]
