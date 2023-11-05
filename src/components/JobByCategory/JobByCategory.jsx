@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const JobByCategory = () => {
   const [activeTab, setActiveTab] = useState("All Jobs");
@@ -42,7 +43,7 @@ const JobByCategory = () => {
           All Jobs
         </button>
         <button
-          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
             activeTab === "OnSite" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("OnSite")}
@@ -58,7 +59,7 @@ const JobByCategory = () => {
           Remote
         </button>
         <button
-          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
             activeTab === "PartTime" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("PartTime")}
@@ -66,7 +67,7 @@ const JobByCategory = () => {
           PartTime
         </button>
         <button
-          className={`btn bg-[#1967d2] hover:bg-[#1967d2] text-white ${
+          className={`btn bg-[#1967d2] hover.bg-[#1967d2] text-white ${
             activeTab === "Hybrid" && "bg-[#111] text-white"
           }`}
           onClick={() => handleTabClick("Hybrid")}
@@ -74,9 +75,13 @@ const JobByCategory = () => {
           Hybrid
         </button>
       </div>
-      <div className="container mt-10 w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-auto">
+      <div className="container mt-10 w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
         {filteredJobs.map((job) => (
-          <div key={job.jobId} className="card  bg-[#f0f6fe] border">
+          <motion.div
+            key={job.jobId}
+            className="card bg-[#f0f6fe] border"
+            whileHover={{ scale: 1.02, y: -5 }}
+          >
             <div className="card-body">
               <div className="flex justify-between items-center">
                 <h2 className="card-title text-[#17171d] text-[18px]">
@@ -100,14 +105,14 @@ const JobByCategory = () => {
               </p>
               <p className="text-[#3c3c3c] text-[15px]">
                 Job Applicants: {job.applicants}
-              </p>{" "}
+              </p>
               <div className="card-actions justify-end">
-                <button className="btn  bg-[#1967d2] hover:bg-[#1967d2] text-white">
+                <button className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white">
                   View Details
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
