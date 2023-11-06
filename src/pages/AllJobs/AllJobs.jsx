@@ -2,21 +2,30 @@ import { useState, useEffect } from "react";
 import Navbar from "../../components/shared/Navbar/Navbar";
 import Footer from "../../components/shared/Footer/Footer";
 import { Link } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch job data from API
-    fetch("http://localhost:5000/jobs")
-      .then((response) => response.json())
-      .then((data) => {
-        setJobs(data);
-        setFilteredJobs(data); // Initially, set filteredJobs to all jobs
-      })
-      .catch((error) => console.error("Error fetching data: ", error));
+    // Simulate a loading delay for demonstration
+    setTimeout(() => {
+      // Fetch job data from your API (replace the API URL)
+      fetch("http://localhost:5000/jobs")
+        .then((response) => response.json())
+        .then((data) => {
+          setJobs(data);
+          setFilteredJobs(data); // Initially, set filteredJobs to all jobs
+          setLoading(false); // Set loading to false when data is loaded
+        })
+        .catch((error) => {
+          console.error("Error fetching data: ", error);
+          setLoading(false); // Set loading to false in case of an error
+        });
+    }, 2000); // Simulate a 2-second loading delay (you can adjust this)
   }, []);
 
   useEffect(() => {
@@ -41,38 +50,48 @@ const AllJobs = () => {
             placeholder="Search by Job Title"
             value={searchQuery}
             onChange={handleSearch}
-            className="input input-bordered input-info w-full max-w-xs"
+            className="input input-bordered input-info ml-2 mt-2 w-full max-w-xs"
           />
-          <table className="table mt-10">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Job Title</th>
-                <th>Job Posting Date</th>
-                <th>Application Deadline</th>
-                <th>Salary Range</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredJobs.map((job) => (
-                <tr key={job.id}>
-                  <td>{job.name}</td>
-                  <td>{job.title}</td>
-                  <td>{job.postingDate}</td>
-                  <td>{job.deadline}</td>
-                  <td>{job.salaryRange}</td>
-                  <td>
-                    <Link to={`/jobDetails/${job._id}`}>
-                      <button className="btn bg-[#1967d2] text-white hover:bg-[#1967d2] btn-xs">
-                        Details
-                      </button>
-                    </Link>
-                  </td>
+          {loading ? ( // Conditional rendering based on the loading state
+            <RotatingLines
+              strokeColor="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              width="96"
+              visible={true}
+            />
+          ) : (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Job Title</th>
+                  <th>Job Posting Date</th>
+                  <th>Application Deadline</th>
+                  <th>Salary Range</th>
+                  <th></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filteredJobs.map((job) => (
+                  <tr key={job.id}>
+                    <td>{job.name}</td>
+                    <td>{job.title}</td>
+                    <td>{job.postingDate}</td>
+                    <td>{job.deadline}</td>
+                    <td>{job.salaryRange}</td>
+                    <td>
+                      <Link to={`/jobDetails/${job._id}`}>
+                        <button className="btn bg-[#1967d2] text-white hover:bg-[#1967d2] btn-xs">
+                          Details
+                        </button>
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
       </div>
       <Footer></Footer>
