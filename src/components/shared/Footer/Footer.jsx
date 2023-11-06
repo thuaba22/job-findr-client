@@ -22,8 +22,8 @@ const Footer = () => {
         </div>
         <hr />
         <div className="mt-10 mb-10">
-          <footer className="footer grid grid-cols-1 md:grid-cols-4 gap-4">
-            <nav className="col-span-1">
+          <footer className="footer grid grid-cols-2 md:grid-cols-4 gap-4">
+            <nav className="col-span-2">
               <div className="flex items-center">
                 <img
                   className="w-[10%]"

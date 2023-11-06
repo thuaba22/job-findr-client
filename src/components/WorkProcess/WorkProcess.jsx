@@ -1,6 +1,6 @@
 const WorkProcess = () => {
   return (
-    <div className="bg-[#f0f6fe] h-[600px] mb-20 pt-24">
+    <div className="bg-[#f0f6fe] container md:h-[600px] mb-20 pt-24 pb-24">
       <p className="text-center font-semibold text-[18px] mb-6 text-[#1967d2]">
         Working Process
       </p>
