@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const JobByCategory = () => {
   const [activeTab, setActiveTab] = useState("All Jobs");
@@ -107,9 +108,11 @@ const JobByCategory = () => {
                 Job Applicants: {job.applicants}
               </p>
               <div className="card-actions justify-end">
-                <button className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white">
-                  View Details
-                </button>
+                <Link to={`/jobDetails/${job._id}`}>
+                  <button className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white">
+                    View Details
+                  </button>
+                </Link>
               </div>
             </div>
           </motion.div>

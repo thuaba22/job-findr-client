@@ -61,7 +61,7 @@ const AllJobs = () => {
               visible={true}
             />
           ) : (
-            <table className="table">
+            <table className="table mt-10">
               <thead>
                 <tr>
                   <th>Name</th>
