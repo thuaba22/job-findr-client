@@ -69,7 +69,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link>All Jobs</Link>
+            <Link to="/allJobs">All Jobs</Link>
           </li>
           {user && (
             <li>
@@ -87,7 +87,7 @@ const Navbar = () => {
             </li>
           )}
           <li>
-            <Link>Blogs</Link>
+            <Link to="/blogs">Blogs</Link>
           </li>
         </ul>
       </div>
