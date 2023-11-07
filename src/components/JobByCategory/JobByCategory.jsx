@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const JobByCategory = () => {
   const [activeTab, setActiveTab] = useState("All Jobs");
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const auth = useContext(AuthContext);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -109,7 +112,27 @@ const JobByCategory = () => {
               </p>
               <div className="card-actions justify-end">
                 <Link to={`/jobDetails/${job._id}`}>
-                  <button className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white">
+                  <button
+                    onClick={() => {
+                      if (!auth.user) {
+                        // Show a toast message
+                        toast.error(
+                          "You have to log in first to view details",
+                          {
+                            position: "top-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "light",
+                          }
+                        );
+                      }
+                    }}
+                    className="btn bg-[#1967d2] hover:bg-[#1967d2] text-white"
+                  >
                     View Details
                   </button>
                 </Link>
