@@ -15,9 +15,7 @@ const JobByCategory = () => {
   };
 
   useEffect(() => {
-    fetch(
-      " https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs"
-    )
+    fetch(" https://job-findr-server.vercel.app/jobs")
       .then((response) => response.json())
       .then((data) => setJobs(data));
   }, []);

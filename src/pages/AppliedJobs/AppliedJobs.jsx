@@ -20,7 +20,7 @@ const AppliedJobs = () => {
   useEffect(() => {
     // Make an API request to fetch applied jobs data when the component loads
     fetch(
-      ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/appliedJobs/${auth.user.email}`
+      ` https://job-findr-server.vercel.app/jobs/appliedJobs/${auth.user.email}`
     )
       .then((response) => response.json())
       .then((data) => {

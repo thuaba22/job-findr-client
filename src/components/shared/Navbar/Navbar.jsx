@@ -122,10 +122,6 @@ const Navbar = () => {
             </button>
           </Link>
         )}
-        <input
-          type="checkbox"
-          className="toggle bg-[#1967d2] toggle-info ml-2"
-        />
       </div>
     </div>
   );

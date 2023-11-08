@@ -47,9 +47,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/${params.jobId}`
-          ),
+          fetch(` https://job-findr-server.vercel.app/jobs/${params.jobId}`),
       },
       {
         path: "/applied-jobs",

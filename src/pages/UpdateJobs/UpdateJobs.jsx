@@ -31,9 +31,7 @@ const UpdateJobs = () => {
   };
 
   useEffect(() => {
-    fetch(
-      ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/${jobId}`
-    )
+    fetch(` https://job-findr-server.vercel.app/jobs/${jobId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -48,16 +46,13 @@ const UpdateJobs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(
-      ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/${jobId}`,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    )
+    fetch(` https://job-findr-server.vercel.app/jobs/${jobId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
       .then((res) => res.json())
       .then((data) => {
         toast(data.message);
