@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 const MyJobs = () => {
-  const [myAddedJobs, setMyAddedJobs] = useState([]);
+  const [myJobItems, setMyJobItems] = useState([]);
+
   const auth = useContext(AuthContext);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredJobs, setFilteredJobs] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,22 +20,43 @@ const MyJobs = () => {
     fetch(`http://localhost:5000/jobs/byUser/${auth.user.displayName}`)
       .then((response) => response.json())
       .then((data) => {
-        setMyAddedJobs(data);
-        setFilteredJobs(data);
+        setMyJobItems(data);
         setLoading(false);
       });
   }, [auth.user.displayName]);
 
-  useEffect(() => {
-    // Filter jobs based on the search query
-    const filtered = myAddedJobs.filter((job) =>
-      job.jobType.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setFilteredJobs(filtered);
-  }, [searchQuery, myAddedJobs]);
+  const deleteCartItem = (jobId) => {
+    console.log(`Deleting item with ID: ${jobId}`);
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
+    fetch(
+      `http://localhost:5000/jobs/byUser/${auth.user.displayName}/${jobId}`,
+      {
+        method: "DELETE",
+      }
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount > 0) {
+          Swal.fire(
+            "Deleted!",
+            "Your item has been removed from the cart.",
+            "success"
+          );
+          const updatedCart = myJobItems.filter((job) => job._id !== jobId);
+          setMyJobItems(updatedCart);
+        } else {
+          console.error("Item not found in the cart.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting the item from the cart:", error);
+      });
   };
 
   return (
@@ -43,13 +64,6 @@ const MyJobs = () => {
       <Navbar />
       <div className="mt-20 w-[90%] mx-auto mb-20">
         <div className="overflow-x-auto">
-          <input
-            type="text"
-            placeholder="Search by Job Type"
-            value={searchQuery}
-            onChange={handleSearch}
-            className="input input-bordered input-info ml-2 mt-2 w-full max-w-xs"
-          />
           {loading ? (
             <RotatingLines
               strokeColor="grey"
@@ -75,7 +89,7 @@ const MyJobs = () => {
                 </tr>
               </thead>
               <tbody>
-                {filteredJobs.map((job) => (
+                {myJobItems.map((job) => (
                   <tr key={job._id}>
                     <td>{job.name}</td>
                     <td>{job.title}</td>
@@ -97,7 +111,9 @@ const MyJobs = () => {
                       </Link>
                     </td>
                     <td>
-                      <AiFillDelete />
+                      <div>
+                        <AiFillDelete onClick={() => deleteCartItem(job._id)} />
+                      </div>
                     </td>
                   </tr>
                 ))}

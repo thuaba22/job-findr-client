@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Footer from "../../components/shared/Footer/Footer";
 import Navbar from "../../components/shared/Navbar/Navbar";
 
@@ -25,11 +26,11 @@ const Blogs = () => {
           <p>
             Access tokens are obtained during user login and used for making
             authenticated requests to the server. When they expire, refresh
-            tokens are used to obtain new access tokens. It&#39;s crucial to
+            tokens are used to obtain new access tokens. It's crucial to
             securely store tokens on the client-side. You can use HTTP cookies
             with HttpOnly and Secure flags for secure storage. Alternatively,
             you can use web storage (localStorage or sessionStorage) but be
-            aware that it&#39;s less secure due to potential XSS attacks.
+            aware that it's less secure due to potential XSS attacks.
           </p>
 
           <h2 className="text-2xl font-semibold mt-4 mb-4">
@@ -47,11 +48,36 @@ const Blogs = () => {
             Explain your code
           </h2>
           <p>
-            To explain your code, provide detailed documentation or comments
-            that describe each part&#39;s purpose. Include explanations of
-            variables, functions, and the code&#39;s overall structure. Ensure
-            your explanation is clear and comprehensive so that other developers
-            can understand and work with your code effectively.
+            The project is a comprehensive job listing and management platform
+            developed using React. Its primary objective is to enable users to
+            create, update, and browse job listings effortlessly. Job seekers
+            can apply for the posted jobs, while employers can review and manage
+            job applications. The core of the project revolves around React, and
+            it interacts with server APIs to facilitate data management,
+            fetching and posting job-related information. In terms of its
+            structure, the project directory, 'src,' houses the primary source
+            code components. It encompasses distinct sections, such as
+            'components' for React components, 'providers' to manage context
+            providers, 'pages' that define the main application pages, 'utils'
+            for utility functions, 'App.js' as the central application entry
+            point, and 'index.js' that handles application rendering and
+            routing. The core components of the project include 'JobList,' which
+            displays job listings, 'JobDetails,' providing in-depth job
+            information, 'JobForm' for creating and updating job listings, and
+            'AuthContext' for handling user authentication state. API
+            integration plays a crucial role in the project, communicating with
+            a custom RESTful API through endpoints like '/jobs' and
+            '/applications.' React Router governs client-side routing with
+            routes like '/', '/job/:id,' and '/my-jobs.' React context is
+            employed for state management, storing job data and authentication
+            status. Form handling relies on controlled components, and Tailwind
+            CSS contributes to the project's responsive and minimalistic design.
+            The project also features error handling for API requests and form
+            validation, along with deployment on Vercel, incorporating
+            continuous integration for automatic deployments from the main
+            branch. Future plans include refining API requests for larger
+            datasets, introducing user profile management, and implementing
+            notifications for job applications.
           </p>
         </div>
       </div>
