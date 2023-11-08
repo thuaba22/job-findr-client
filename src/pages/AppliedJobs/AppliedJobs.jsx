@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
+import { FaDownload } from "react-icons/fa";
+import { usePDF } from "react-to-pdf";
 
 const AppliedJobs = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
@@ -12,6 +14,7 @@ const AppliedJobs = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
 
   useEffect(() => {
     // Make an API request to fetch applied jobs data when the component loads
@@ -41,13 +44,19 @@ const AppliedJobs = () => {
       <Navbar />
       <div className="mt-20 w-[90%] mx-auto mb-20">
         <div className="overflow-x-auto">
-          <input
-            type="text"
-            placeholder="Search by Job Type"
-            value={searchQuery}
-            onChange={handleSearch}
-            className="input input-bordered input-info ml-2 mt-2 w-full max-w-xs"
-          />
+          <div className="flex items-center justify-between">
+            <input
+              type="text"
+              placeholder="Search by Job Type"
+              value={searchQuery}
+              onChange={handleSearch}
+              className="input input-bordered input-info ml-2 mt-2 mb-4 w-full max-w-xs"
+            />
+            <FaDownload
+              onClick={() => toPDF()}
+              className="text-3xl text-[#1967d2]"
+            ></FaDownload>
+          </div>
           {loading ? (
             <RotatingLines
               strokeColor="grey"
@@ -57,7 +66,7 @@ const AppliedJobs = () => {
               visible={true}
             />
           ) : (
-            <table className="table mt-10">
+            <table ref={targetRef} className="table mt-10">
               <thead>
                 <tr>
                   <th>Name</th>
