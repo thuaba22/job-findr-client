@@ -68,7 +68,8 @@ const JobDetails = () => {
       body: JSON.stringify({
         user: auth.user.email,
         name: auth.user.displayName,
-        jobId: jobs._id,
+        // jobId: jobs._id,
+        jobs,
         resumeLink,
       }),
     })
@@ -78,7 +79,8 @@ const JobDetails = () => {
         if (data.insertedId) {
           setIsApplied(true);
           localStorage.setItem(appliedKey, "true");
-          toast("You've successfully applied to the job"); // Show a success toast message
+          toast("You've successfully applied to the job");
+          // Show a success toast message
         }
       });
   };

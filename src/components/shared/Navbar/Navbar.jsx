@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
@@ -34,29 +34,29 @@ const Navbar = () => {
             className="menu menu-sm text-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
 
             <li>
-              <Link>All Jobs</Link>
+              <NavLink to="/allJobs">All Jobs</NavLink>
             </li>
             {user && (
               <li>
-                <Link to="/applied-jobs">Applied Jobs</Link>
+                <NavLink to="/applied-jobs">Applied Jobs</NavLink>
               </li>
             )}
             {user && (
               <li>
-                <Link to="/my-jobs">My Jobs</Link>
+                <NavLink to="/my-jobs">My Jobs</NavLink>
               </li>
             )}
             {user && (
               <li>
-                <Link to="/add-job">Add A Job</Link>
+                <NavLink to="/add-job">Add A Job</NavLink>
               </li>
             )}
             <li>
-              <Link>Blogs</Link>
+              <NavLink to="/blogs">Blogs</NavLink>
             </li>
           </ul>
         </div>
@@ -65,29 +65,29 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal text-base px-1">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
 
           <li>
-            <Link to="/allJobs">All Jobs</Link>
+            <NavLink to="/allJobs">All Jobs</NavLink>
           </li>
           {user && (
             <li>
-              <Link to="/applied-jobs">Applied Jobs</Link>
+              <NavLink to="/applied-jobs">Applied Jobs</NavLink>
             </li>
           )}
           {user && (
             <li>
-              <Link to="/my-jobs">My Jobs</Link>
+              <NavLink to="/my-jobs">My Jobs</NavLink>
             </li>
           )}
           {user && (
             <li>
-              <Link to="/add-job">Add A Job</Link>
+              <NavLink to="/add-job">Add A Job</NavLink>
             </li>
           )}
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <NavLink to="/blogs">Blogs</NavLink>
           </li>
         </ul>
       </div>
