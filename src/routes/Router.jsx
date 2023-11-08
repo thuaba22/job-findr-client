@@ -10,6 +10,8 @@ import Error from "../pages/Error/Error";
 import PrivateRoute from "./PrivateRoute";
 import AppliedJobs from "../pages/AppliedJobs/AppliedJobs";
 import AddJobs from "../pages/AddJobs/AddJobs";
+import MyJobs from "../pages/MyJobs/MyJobs";
+import UpdateJobs from "../pages/UpdateJobs/UpdateJobs";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddJobs></AddJobs>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-jobs",
+        element: (
+          <PrivateRoute>
+            <MyJobs></MyJobs>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updtateJobs/:jobId",
+        element: (
+          <PrivateRoute>
+            <UpdateJobs></UpdateJobs>
           </PrivateRoute>
         ),
       },
