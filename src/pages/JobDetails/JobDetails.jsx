@@ -61,19 +61,22 @@ const JobDetails = () => {
 
     console.log("Form Data:", formData);
 
-    fetch("http://localhost:5000/jobs/appliedJobs", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        user: auth.user.email,
-        name: auth.user.displayName,
-        // jobId: jobs._id,
-        jobs,
-        resumeLink,
-      }),
-    })
+    fetch(
+      " https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/appliedJobs",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          user: auth.user.email,
+          name: auth.user.displayName,
+          // jobId: jobs._id,
+          jobs,
+          resumeLink,
+        }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -18,7 +18,9 @@ const MyJobs = () => {
 
   useEffect(() => {
     // Make an API request to fetch applied jobs data when the component loads
-    fetch(`http://localhost:5000/jobs/byUser/${auth.user.displayName}`)
+    fetch(
+      ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/byUser/${auth.user.displayName}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setMyJobItems(data);
@@ -30,7 +32,7 @@ const MyJobs = () => {
     console.log(`Deleting item with ID: ${jobId}`);
 
     fetch(
-      `http://localhost:5000/jobs/byUser/${auth.user.displayName}/${jobId}`,
+      ` https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs/byUser/${auth.user.displayName}/${jobId}`,
       {
         method: "DELETE",
       }

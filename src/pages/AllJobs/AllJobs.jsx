@@ -13,7 +13,9 @@ const AllJobs = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch("http://localhost:5000/jobs")
+      fetch(
+        " https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs"
+      )
         .then((response) => response.json())
         .then((data) => {
           setJobs(data);

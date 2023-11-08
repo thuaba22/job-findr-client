@@ -45,13 +45,16 @@ const AddJobs = () => {
 
     console.log("Form Data:", formData);
 
-    fetch("http://localhost:5000/jobs", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      " https://job-findr-server-1z54vlrfa-thuabas-projects.vercel.app/jobs",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
