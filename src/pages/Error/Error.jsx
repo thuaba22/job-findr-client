@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const Error = () => {
   return (
     <div className="container md:w-[90%] p-10 mt-10 bg-[#f0f6fe] mx-auto flex flex-col md:flex-row justify-between items-center">
+      <PageTitle title="JobFindr | ErrorPage"></PageTitle>
+
       <div>
         <img src="https://i.postimg.cc/028GSdFR/error-404.png" alt="" />
       </div>

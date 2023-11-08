@@ -7,6 +7,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Navbar from "../../components/shared/Navbar/Navbar";
 import Footer from "../../components/shared/Footer/Footer";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -51,6 +52,8 @@ const Register = () => {
   };
   return (
     <div>
+      <PageTitle title="JobFindr | Register"></PageTitle>
+
       <Navbar></Navbar>
       <div className="hero min-h-screen  bg-white">
         <div className="hero-content flex">

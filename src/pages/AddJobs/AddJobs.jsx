@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const AddJobs = () => {
   const auth = useContext(AuthContext);
@@ -62,6 +63,8 @@ const AddJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | AddJobs"></PageTitle>
+
       <Navbar></Navbar>
       <div className="bg-white p-24">
         <h2 className="text-3xl font-extrabold">Add a Job</h2>

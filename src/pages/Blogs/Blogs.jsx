@@ -1,10 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import Footer from "../../components/shared/Footer/Footer";
 import Navbar from "../../components/shared/Navbar/Navbar";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const Blogs = () => {
   return (
     <div>
+      <PageTitle title="JobFindr | Blogs"></PageTitle>
+
       <Navbar />
       <div className="container mx-auto mb-20 p-5">
         <h1 className="text-4xl font-bold text-center mb-5">My Blog</h1>

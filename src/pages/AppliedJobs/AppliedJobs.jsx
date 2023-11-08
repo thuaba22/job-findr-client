@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
 import { FaDownload } from "react-icons/fa";
 import { usePDF } from "react-to-pdf";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const AppliedJobs = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
@@ -41,6 +42,8 @@ const AppliedJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | AppliedJobs"></PageTitle>
+
       <Navbar />
       <div className="mt-20 w-[90%] mx-auto mb-20">
         <div className="overflow-x-auto">

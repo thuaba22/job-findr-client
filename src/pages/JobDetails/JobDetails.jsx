@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -90,6 +91,8 @@ const JobDetails = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | JobDetails"></PageTitle>
+
       <Navbar></Navbar>
       <div className="container w-[90%] mx-auto">
         <div className="mt-10 rounded-lg relative">

@@ -3,6 +3,7 @@ import Navbar from "../../components/shared/Navbar/Navbar";
 import Footer from "../../components/shared/Footer/Footer";
 import { Link } from "react-router-dom";
 import { RotatingLines } from "react-loader-spinner";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const AllJobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -40,6 +41,8 @@ const AllJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | AllJobs"></PageTitle>
+
       <Navbar></Navbar>
       <div className="mt-20 w-[90%] mx-auto mb-20">
         <div className="overflow-x-auto">

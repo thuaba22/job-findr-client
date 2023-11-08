@@ -6,6 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -50,6 +51,8 @@ const Login = () => {
   };
   return (
     <div>
+      <PageTitle title="JobFindr | Login"></PageTitle>
+
       <Navbar></Navbar>
       <div className="hero container w-full md:min-h-screen  bg-white">
         <div className="hero-content flex">

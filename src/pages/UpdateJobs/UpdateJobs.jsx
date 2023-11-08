@@ -4,6 +4,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/shared/Navbar/Navbar";
 import Footer from "../../components/shared/Footer/Footer";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const UpdateJobs = () => {
   const { jobId } = useParams();
@@ -66,6 +67,8 @@ const UpdateJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | UpdateJobs"></PageTitle>
+
       <Navbar></Navbar>
       <div className="bg-white p-24">
         <h2 className="text-3xl font-extrabold">Update a Job</h2>

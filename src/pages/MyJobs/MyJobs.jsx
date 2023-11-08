@@ -8,6 +8,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import PageTitle from "../../components/shared/PageTitle/PageTitle";
 
 const MyJobs = () => {
   const [myJobItems, setMyJobItems] = useState([]);
@@ -61,6 +62,8 @@ const MyJobs = () => {
 
   return (
     <div>
+      <PageTitle title="JobFindr | MyJobs"></PageTitle>
+
       <Navbar />
       <div className="mt-20 w-[90%] mx-auto mb-20">
         <div className="overflow-x-auto">
