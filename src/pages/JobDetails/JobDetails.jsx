@@ -82,6 +82,9 @@ const JobDetails = () => {
           toast("You've successfully applied to the job");
           // Show a success toast message
         }
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
